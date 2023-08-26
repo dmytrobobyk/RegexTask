@@ -1,0 +1,197 @@
+Hey. So I created a tests for the class I'll share you. Can you write documentation by the next criteria:
+    Application description: 1 paragraph, 2-5 Sentences.
+    Regex implementation description: 1 paragraph, 4-10 Sentences.
+    Information on how to open and run the project tests locally.
+Here is my class what is needed to be documented:
+object RegexValidatorUtil {
+
+    private val stringValidationRegex: (Int, String) -> Regex = { maxLength, specialChars ->
+        Regex(
+            "^(?=.{1,$maxLength}$)(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*$specialChars)(?!.*\\s).*$"
+        )
+    }
+
+    /**
+     * Validates the input string based on the following criteria:
+     * 1. Maximum string length.
+     * 2. At least one uppercase letter, one lowercase letter, one digit, and one special character from a predefined list.
+     * 3. No whitespace characters.
+     *
+     * @param input The input string to validate.
+     * @param maxLength The maximum allowed length for the input string.
+     * @return `true` if the input string matches the criteria, otherwise `false`.
+     */
+    fun isValidString(input: String, maxLength: Int, specialChars: String = ""): Boolean {
+        val pattern = stringValidationRegex(maxLength, specialChars)
+        return pattern.matches(input)
+    }
+}
+ChatGPT
+Documentation
+Application Description
+
+The RegexValidatorUtil is a utility class designed to validate strings against specific criteria. It ensures that a string has a predefined maximum length, contains at least one uppercase letter, one lowercase letter, one digit, and a special character. The class also checks that the string does not contain any whitespace characters.
+Regex Implementation Description
+
+The core of the RegexValidatorUtil class is a regular expression defined in the stringValidationRegex function. This regex dynamically adjusts based on the provided maximum string length and special characters. The regex ensures the string meets the following criteria:
+
+    The string length should not exceed the defined maximum length.
+    It should contain at least one uppercase letter, one lowercase letter, and one digit.
+    It should have at least one of the provided special characters.
+    The string should not have any whitespace characters.
+    The isValidString method uses this regex to validate an input string and returns true if the string matches the criteria, otherwise false.
+
+How to Open and Run the Project Tests Locally
+
+(Note: The actual steps may vary depending on how you've structured your project. Here's a general guide.)
+
+    Clone the Repository: If the utility class is hosted on a platform like GitHub, start by cloning the repository to your local machine using the command:
+
+    bash
+
+git clone <repository_url>
+
+Navigate to the Project Directory: Once cloned, navigate to the directory containing the project.
+
+bash
+
+    cd path/to/project_directory
+
+    Open the Project in Your IDE: Open the project using your preferred Integrated Development Environment (IDE) like IntelliJ IDEA, Eclipse, etc.
+
+    Locate the Tests: Navigate to the test directory or locate the test class associated with RegexValidatorUtil.
+
+    Run the Tests: Most IDEs have a built-in functionality to run tests. You can typically right-click on the test file and select the 'Run' option. If your project uses a build tool like Gradle or Maven, you might also be able to run the tests from the command line using a command like ./gradlew test or mvn test.
+
+    Review Results: After running the tests, the IDE or command line tool will display the test results. Review these to ensure that all tests pass and the utility class functions as expected.
+
+Make sure you have all necessary dependencies installed and properly configured to avoid any issues during testing.
+User
+ok, so now could you please generate this using echo command in terminal to save it into README.md file?
+ChatGPT
+
+Of course! Here's how you'd use the echo command in the terminal to save the provided documentation into a README.md file:
+
+bash
+
+echo "### Documentation" >> README.md
+echo "---" >> README.md
+echo "" >> README.md
+echo "#### Application Description" >> README.md
+echo "" >> README.md
+echo "The \`RegexValidatorUtil\` is a utility class designed to validate strings against specific criteria. It ensures that a string has a predefined maximum length, contains at least one uppercase letter, one lowercase letter, one digit, and a special character. The class also checks that the string does not contain any whitespace characters." >> README.md
+echo "" >> README.md
+echo "#### Regex Implementation Description" >> README.md
+echo "" >> README.md
+echo "The core of the \`RegexValidatorUtil\` class is a regular expression defined in the \`stringValidationRegex\` function. This regex dynamically adjusts based on the provided maximum string length and special characters. The regex ensures the string meets the following criteria:" >> README.md
+echo "1. The string length should not exceed the defined maximum length." >> README.md
+echo "2. It should contain at least one uppercase letter, one lowercase letter, and one digit." >> README.md
+echo "3. It should have at least one of the provided special characters." >> README.md
+echo "4. The string should not have any whitespace characters." >> README.md
+echo "The \`isValidString\` method uses this regex to validate an input string and returns \`true\` if the string matches the criteria, otherwise \`false\`." >> README.md
+echo "" >> README.md
+echo "#### How to Open and Run the Project Tests Locally" >> README.md
+echo "" >> README.md
+echo "(Note: The actual steps may vary depending on how you've structured your project. Here's a general guide.)" >> README.md
+echo "" >> README.md
+echo "1. **Clone the Repository**: If the utility class is hosted on a platform like GitHub, start by cloning the repository to your local machine using the command:" >> README.md
+echo "    \`\`\`bash" >> README.md
+echo "    git clone <repository_url>" >> README.md
+echo "    \`\`\`" >> README.md
+echo "2. **Navigate to the Project Directory**: Once cloned, navigate to the directory containing the project." >> README.md
+echo "    \`\`\`bash" >> README.md
+echo "    cd path/to/project_directory" >> README.md
+echo "    \`\`\`" >> README.md
+echo "3. **Open the Project in Your IDE**: Open the project using your preferred Integrated Development Environment (IDE) like IntelliJ IDEA, Eclipse, etc." >> README.md
+echo "" >> README.md
+echo "4. **Locate the Tests**: Navigate to the test directory or locate the test class associated with \`RegexValidatorUtil\`." >> README.md
+echo "" >> README.md
+echo "5. **Run the Tests**: Most IDEs have a built-in functionality to run tests. You can typically right-click on the test file and select the 'Run' option. If your project uses a build tool like Gradle or Maven, you might also be able to run the tests from the command line using a command like \`./gradlew test\` or \`mvn test\`." >> README.md
+echo "" >> README.md
+echo "6. **Review Results**: After running the tests, the IDE or command line tool will display the test results. Review these to ensure that all tests pass and the utility class functions as expected." >> README.md
+echo "" >> README.md
+echo "Make sure you have all necessary dependencies installed and properly configured to avoid any issues during testing." >> README.md
+
+You can simply copy and paste the above commands into your terminal to generate the README.md file.
+User
+ok, do the same but for Android studio
+ChatGPT
+
+To generate the documentation in README.md for an Android Studio project, the process is similar, but I'll provide more specific instructions tailored for Android Studio users:
+
+    Open your Android Studio project.
+
+    In the Project pane, right-click on the root directory of your project.
+
+    Navigate to New > File and create a new file named README.md.
+
+    Double-click README.md to open it in the editor.
+
+    Copy the documentation content you've been provided with.
+
+    Paste the content directly into the README.md file in Android Studio.
+
+    Save the file.
+
+However, if you're still keen on using the terminal approach:
+
+    Navigate to the root directory of your Android Studio project in the terminal. You can use the built-in terminal in Android Studio or your system's terminal.
+
+    Run the previously provided echo commands. This will append the documentation content to the README.md file.
+
+After following either of the methods, you will have the documentation saved in the README.md file in the root directory of your Android Studio project.
+User
+generate the documentation for the project for Android Studio IDE using echo to save it into README.md file
+ChatGPT
+
+Absolutely! If you'd like to use the terminal approach within Android Studio's terminal to generate the README.md file, follow these steps:
+
+    Open your Android Studio project.
+
+    At the bottom of the Android Studio window, you'll find the Terminal tab. Click on it to open the terminal.
+
+    In the terminal, you'll be in the root directory of your project by default.
+
+    Now, paste the following echo commands:
+
+bash
+
+echo "### Documentation" > README.md
+echo "---" >> README.md
+echo "" >> README.md
+echo "#### Application Description" >> README.md
+echo "" >> README.md
+echo "The \`RegexValidatorUtil\` is a utility class designed to validate strings against specific criteria. It ensures that a string has a predefined maximum length, contains at least one uppercase letter, one lowercase letter, one digit, and a special character. The class also checks that the string does not contain any whitespace characters." >> README.md
+echo "" >> README.md
+echo "#### Regex Implementation Description" >> README.md
+echo "" >> README.md
+echo "The core of the \`RegexValidatorUtil\` class is a regular expression defined in the \`stringValidationRegex\` function. This regex dynamically adjusts based on the provided maximum string length and special characters. The regex ensures the string meets the following criteria:" >> README.md
+echo "1. The string length should not exceed the defined maximum length." >> README.md
+echo "2. It should contain at least one uppercase letter, one lowercase letter, and one digit." >> README.md
+echo "3. It should have at least one of the provided special characters." >> README.md
+echo "4. The string should not have any whitespace characters." >> README.md
+echo "The \`isValidString\` method uses this regex to validate an input string and returns \`true\` if the string matches the criteria, otherwise \`false\`." >> README.md
+echo "" >> README.md
+echo "#### How to Open and Run the Project Tests Locally" >> README.md
+echo "" >> README.md
+echo "(Note: The actual steps may vary depending on how you've structured your project. Here's a general guide.)" >> README.md
+echo "" >> README.md
+echo "1. **Clone the Repository**: If the utility class is hosted on a platform like GitHub, start by cloning the repository to your local machine using the command:" >> README.md
+echo "    \`\`\`bash" >> README.md
+echo "    git clone <repository_url>" >> README.md
+echo "    \`\`\`" >> README.md
+echo "2. **Navigate to the Project Directory**: Once cloned, navigate to the directory containing the project." >> README.md
+echo "    \`\`\`bash" >> README.md
+echo "    cd path/to/project_directory" >> README.md
+echo "    \`\`\`" >> README.md
+echo "3. **Open the Project in Android Studio**: Launch Android Studio and choose 'Open an existing Android Studio project'. Then select your project directory to open it." >> README.md
+echo "" >> README.md
+echo "4. **Locate the Tests**: In Android Studio, navigate to the test directory or locate the test class associated with \`RegexValidatorUtil\`." >> README.md
+echo "" >> README.md
+echo "5. **Run the Tests**: Right-click on the test file and select the 'Run' option. This will execute the tests and display the results in the 'Run' window." >> README.md
+echo "" >> README.md
+echo "6. **Review Results**: After running the tests, review the test results in the 'Run' window to ensure all tests pass and the utility class functions as expected." >> README.md
+echo "" >> README.md
+echo "Make sure you have all necessary dependencies installed and properly configured to avoid any issues during testing." >> README.md
+
+    Press Enter to execute these commands. This will generate a README.md file in the root directory of your Android Studio project with the provided documentation.
