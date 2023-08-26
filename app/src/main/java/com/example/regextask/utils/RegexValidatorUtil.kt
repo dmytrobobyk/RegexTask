@@ -3,7 +3,9 @@ package com.example.regextask.utils
 object RegexValidatorUtil {
 
     private val stringValidationRegex: (Int, String) -> Regex = { maxLength, specialChars ->
-        """^(?=.{1,$maxLength}$)(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*$specialChars)(?!.*\s).*$""".toRegex()
+        Regex(
+            "^(?=.{1,$maxLength}$)(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*$specialChars)(?!.*\\s).*$"
+        )
     }
 
     /**
