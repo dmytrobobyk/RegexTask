@@ -20,7 +20,7 @@ The `isValidString` method uses this regex to validate an input string and retur
 
 1. **Clone the Repository**: If the utility class is hosted on a platform like GitHub, start by cloning the repository to your local machine using the command:
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/dmytrobobyk/RegexTask.git
     ```
 2. **Navigate to the Project Directory**: Once cloned, navigate to the directory containing the project.
     ```bash
